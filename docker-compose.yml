@@ -1,0 +1,29 @@
+version: '3'
+services:
+  server:
+    container_name: server
+    build: .
+    environment:
+      - FIXER_API_KEY=${FIXER_API_KEY}
+      - DEFAULT_BASE_CURRENCY=${DEFAULT_BASE_CURRENCY}
+      - DB_USER=${DB_USER}
+      - DB_PWD=${DB_PWD}
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/code
+    depends_on:
+      - "mongodb"
+  mongodb:
+    container_name: db
+    image: mongo
+    # environment:
+    # TODO: Fix mongodb authentication
+      # - MONGO_INITDB_ROOT_USERNAME=wil
+      # - MONGO_INITDB_ROOT_PASSWORD=secure_password
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb:/data/db
+volumes:
+  mongodb:
