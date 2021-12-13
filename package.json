@@ -1,7 +1,7 @@
 {
   "name": "hapi-crud-mongo",
   "version": "1.0.0",
-  "description": "Settle Network Challenge made using node + hapi.js + mongo + mongoose",
+  "description": "FX rate API made using node + hapi.js + mongo + mongoose",
   "main": "index.js",
   "scripts": {
     "start": "node -r dotenv/config src/index.js",
